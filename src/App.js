@@ -4,8 +4,9 @@ import ToDoList from "./ToDoList";
 
 function App() {
   return (
-    //create component
-    <>
+    //create component ToDoList
+    //+ empty tag to combine return 2 things
+    <> 
     <ToDoList />
     <input type="text"/>
     </>
