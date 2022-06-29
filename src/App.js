@@ -7,7 +7,7 @@ import ToDoList from "./ToDoList";
 function App() {
   //uses state function returns array,default empty[]
   //[all todos, function to update todos]
-  const [todos, setTodos] = useState(["todo1", "todo2"]); //Array destructure
+  const [todos, setTodos] = useState([{id:1,name:"Todo1",complete:false}]); //Array destructure
   return (
     //create component ToDoList
     //+ empty tag to combine return 2 things

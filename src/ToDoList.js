@@ -8,6 +8,6 @@ export default function ToDoList({ todos }) {
   //return ToDo component
   return todos.map((todo) => {
     //set unique key
-    return <ToDo key= {todo }todo={todo} />;
+    return <ToDo key={todo.id} todo={todo} />;
   });
 }
