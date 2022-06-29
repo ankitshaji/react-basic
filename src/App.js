@@ -59,6 +59,15 @@ function App() {
     toDoNameRef.current.value = null;
   }
 
+  //button onclick event handler function
+  //to clear todos that have complete checked
+  function handleClearToDos(){
+    //if complete true - add to newTodos
+    const newTodos = todos.filter(todo=>!todo.complete);
+    //update todos object array without checked comeple todos
+    setTodos(newTodos);
+  }
+
   return (
     //Empty tag to combine return 2 things
     <>
@@ -68,9 +77,9 @@ function App() {
       <ToDoList todos={todos} toggleToDo={toggleToDo} />
       {/*userRef - input in variable toDoNameRef*/}
       <input ref={toDoNameRef} type="text" />
-      {/*button onclick function call*/}
+      {/*button onclick function calls*/}
       <button onClick={handleAddToDo}>Add ToDo</button>
-      <button>Clear Completed ToDo</button>
+      <button onClick={handleClearToDos}>Clear Completed ToDo</button>
       <div>{todos.filter((todo) => !todo.complete).length} left to do</div>
     </>
   );
