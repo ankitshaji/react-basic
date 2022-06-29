@@ -4,6 +4,7 @@ import React from "react";
 export default function ToDo({ todo }) {
   return (
     <div>
+      {/*Todo Component has checkbox and name */}
       <label>
         <input type= "checkbox" checked={todo.complete}/>
         {todo.name}
