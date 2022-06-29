@@ -1,7 +1,8 @@
 import React from 'react'
 
-export default function ToDoList() {
+//ToDoList Component receives prop todos
+export default function ToDoList({todos}) {
   return (
-    <div>Hello world</div>
+    <div>{todos.length}</div>
   )
 }
