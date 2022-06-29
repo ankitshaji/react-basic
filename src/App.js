@@ -5,7 +5,7 @@ import ToDoList from "./ToDoList";
 
 //App component
 function App() {
-  //uses state function returns array,default empty[]
+  //usestate function returns array,default empty[]
   //destructure object - [all todos, function to update todos]
   const [todos, setTodos] = useState([]); //Object destructure
 
@@ -18,6 +18,11 @@ function App() {
     const name = toDoNameRef.current.value;
     //input error check
     if (name === "") return;
+    //usestate function -prevTodos object array values concat with new todo 
+    //return the new prevTodos object array
+    setTodos(prevTodos =>{
+      return [...prevTodos,{id:1,name:name,complete:false}]
+    })
     //clear for next
     toDoNameRef.current.value = null;
   }
