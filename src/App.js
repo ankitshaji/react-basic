@@ -2,6 +2,8 @@
 import React, { useState, useRef } from "react";
 //import ToDoList component js file function
 import ToDoList from "./ToDoList";
+//import npm uuid library
+import { v4 as uuidv4 } from 'uuid';
 
 //App component
 function App() {
@@ -18,11 +20,12 @@ function App() {
     const name = toDoNameRef.current.value;
     //input error check
     if (name === "") return;
-    //usestate function -prevTodos object array values concat with new todo 
+    //usestate function -prevTodos object array values concat with new todo
     //return the new prevTodos object array
-    setTodos(prevTodos =>{
-      return [...prevTodos,{id:1,name:name,complete:false}]
-    })
+    setTodos((prevTodos) => {
+      //uuidv4 creates random ids
+      return [...prevTodos, { id: uuidv4(), name: name, complete: false }];
+    });
     //clear for next
     toDoNameRef.current.value = null;
   }
