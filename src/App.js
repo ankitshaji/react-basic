@@ -32,6 +32,17 @@ function App() {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos)); //object array to json string
   }, [todos]);
 
+  //function to toggle complete property of todo
+  function toggleToDo(id) {
+    //copy of todos - dont modify state variable direct
+    const newTodos = [...todos];
+    //find the todo to toggle with id
+    const todo = newTodos.find((todo) => todo.id === id);
+    todo.complete = !todo.complete; //toggle the property
+    //Update todos with toggled todo
+    setTodos(newTodos);
+  }
+
   //button onclick event handler function
   function handleAddToDo(e) {
     //element currently referencing -ie input
@@ -53,7 +64,8 @@ function App() {
     <>
       {/* create component ToDoList */}
       {/* pass in variable todos to prop todos of component ToDoList */}
-      <ToDoList todos={todos} />
+      {/* pass in function toggleToDo to prop toggleTodo of component TodoList */}
+      <ToDoList todos={todos} toggleToDo={toggleToDo} />
       {/*userRef - input in variable toDoNameRef*/}
       <input ref={toDoNameRef} type="text" />
       {/*button onclick function call*/}
